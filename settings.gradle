@@ -1,0 +1,9 @@
+rootProject.name = 'payctx'
+include 'payctx-common'
+include 'payctx-testdata'
+include 'payctx-configuration'
+include 'payctx-application'
+include 'payctx-web:api'
+include 'payctx-web:persistence'
+include 'payctx-specification'
+

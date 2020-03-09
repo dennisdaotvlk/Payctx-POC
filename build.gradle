@@ -1,0 +1,53 @@
+plugins {
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id "io.freefair.lombok" version "4.0.0"
+}
+
+
+ext{
+	springBootVersion = '2.2.5.RELEASE'
+	junitVersion=  '4.12'
+	javaVersion = '11'
+}
+subprojects {
+
+
+	
+	group = 'com.traveloka'
+	version = '0.0.1-SNAPSHOT'
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'java-library'
+
+
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+		}
+	}
+
+	dependencies {
+		testCompile group: 'junit', name: 'junit', version: junitVersion
+		compile group: 'org.springframework.data', name: 'spring-data-mongodb', version: springBootVersion
+
+	}
+	
+	compileJava {
+		sourceCompatibility =  javaVersion
+		targetCompatibility =  javaVersion
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+
+
+

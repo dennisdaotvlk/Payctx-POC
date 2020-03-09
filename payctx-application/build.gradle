@@ -1,0 +1,9 @@
+dependencies {
+  testCompile group: 'junit', name: 'junit'
+  implementation('org.springframework.boot:spring-boot-starter-web')
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  implementation project(':payctx-common')
+  implementation project(':payctx-testdata')
+  implementation project(':payctx-specification')
+}

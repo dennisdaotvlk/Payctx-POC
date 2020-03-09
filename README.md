@@ -22,5 +22,5 @@ TestData
 
 **Api Details**
 
-    https://www.getpostman.com/collections/7a6f0f69710f732c2a19
+https://www.getpostman.com/collections/7a6f0f69710f732c2a19
 

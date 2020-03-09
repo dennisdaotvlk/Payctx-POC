@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication(scanBasePackages = "com.traveloka.*")
 public class PayctxApplication {
+  
   public static void main(String[] args) {
     SpringApplication.run(PayctxApplication.class, args);
   }

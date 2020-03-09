@@ -1,0 +1,50 @@
+{
+  "versionId": "v1",
+  "configName": "Initial_Config_By_Sandeep",
+  "configState": "ACTIVE",
+  "payload": [
+    {
+      "primaryMethod": "UANGKU",
+      "nextMethods": [
+        "OTC",
+        "BANK_TRANSFER",
+        "MYCARD"
+      ]
+    },
+    {
+      "primaryMethod": "PAYLATER",
+      "nextMethods": [
+        "OTC",
+        "BANK_TRANSFER",
+        "MYCARD"
+      ]
+    },
+    {
+      "primaryMethod": "BANK_TRANSFER",
+      "nextMethods": [
+        "UANGKU",
+        "PAYLATER",
+        "MYCARD",
+        "OTC"
+      ]
+    },
+    {
+      "primaryMethod": "MYCARD",
+      "nextMethods": [
+        "UANGKU",
+        "PAYLATER",
+        "BANK_TRANSFER",
+        "OTC"
+      ]
+    },
+    {
+      "primaryMethod": "OTC",
+      "nextMethods": [
+        "UANGKU",
+        "PAYLATER",
+        "MYCARD",
+        "BANK_TRANSFER"
+      ]
+    }
+  ]
+}

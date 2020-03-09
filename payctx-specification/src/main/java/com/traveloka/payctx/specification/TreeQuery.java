@@ -10,7 +10,6 @@ import java.util.function.Predicate;
  * @author sandeepandey
  */
 public interface TreeQuery {
-
   default TreeQueryResult nextMethodsByPrimaryMethod(PaymentMethod primaryMethodName) {
     return nextMethodsByPrimaryMethod(primaryMethodName, 1);
   }

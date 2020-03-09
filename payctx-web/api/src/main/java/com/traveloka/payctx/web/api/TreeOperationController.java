@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.function.Predicate;
 import javax.annotation.PostConstruct;
 
 /**
@@ -50,7 +51,8 @@ public class TreeOperationController {
   @PostMapping(path = "/listCombo", consumes = "application/json", produces = "application/json")
   @ResponseBody
   public ResponseEntity<TreeQueryResult> getAllCombination(@RequestBody ListPaymentCombinationRequest request) {
-    return ResponseEntity.ok().body(treeQuery.nextMethodsByPrimaryMethod(request.getPrimary(), request.getUptoLevel()));
+    return ResponseEntity.ok().body(treeQuery.nextMethodsByPrimaryMethod(request.getPrimary(), request.getUptoLevel(),
+        s -> !s.equals(request.getPrimary().name())));
   }
 
   @PostMapping(value = "/shiftUpTree", consumes = "application/json")

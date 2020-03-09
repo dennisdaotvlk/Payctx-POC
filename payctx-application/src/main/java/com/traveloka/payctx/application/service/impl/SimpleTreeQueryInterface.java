@@ -17,8 +17,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author sandeepandey
@@ -34,12 +36,12 @@ public class SimpleTreeQueryInterface implements TreeQuery {
     this.simpleTreeOperator = simpleTreeOperator;
   }
 
-  public void refreshState() {
+  private void refreshState() {
     readOnlyTreeState = simpleTreeOperator.toReadOnlyState();
   }
 
   @Override
-  public TreeQueryResult nextMethodsByPrimaryMethod(PaymentMethod primaryMethodName, int uptoLevel) {
+  public TreeQueryResult nextMethodsByPrimaryMethod(PaymentMethod primaryMethodName, int uptoLevel, Predicate<String> predicate) {
     log.info("Querying Next Eligible Payment Methods for Primary Payment Method :::{} upto level :::{}", primaryMethodName, uptoLevel);
     Objects.requireNonNull(primaryMethodName);
     if (uptoLevel == 0) {
@@ -55,6 +57,8 @@ public class SimpleTreeQueryInterface implements TreeQuery {
     List<Collection<String>> result = new ArrayList<>();
     int finalUptoLevel = uptoLevel;
     accumulateResult(nodeToOperate, levelCount -> levelCount == finalUptoLevel, result::add);
+    result = result.stream().map((Function<Collection<String>, Collection<String>>) i -> i.stream().filter(predicate)
+        .collect(Collectors.toList())).collect(Collectors.toList());
     return new TreeQueryResult(result);
   }
 

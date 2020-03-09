@@ -18,6 +18,4 @@ import java.util.List;
 public class TreeQueryResult {
 
   private List<Collection<String>> eligibleCombination;
-
-
 }

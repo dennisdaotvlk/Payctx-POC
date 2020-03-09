@@ -1,7 +1,5 @@
 # Payctx-POC
 
-# Payctx-POC
-
 **Application Module**
 
 Common

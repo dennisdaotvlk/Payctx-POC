@@ -18,7 +18,9 @@ TestData
 
 1: Import the gradle project first
 
-2: Go to configuration module and run _PayctxApplication_ class.
+2: Setup local MongoDB with username/password/database as per application-local.yml
+
+3: Go to configuration module and run _PayctxApplication_ class with _-Dspring.profiles.active=local_.
 
 **Api Details**
 
